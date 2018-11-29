@@ -1,9 +1,8 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import RegistrationForm, LoginForm
+from flask import render_template, url_for, flash, redirect
+from pmurph import app
+from pmurph.forms import RegistrationForm, LoginForm
+from pmurph.models import User, Post
 
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '0b9b554632cd3f07b0593457f58d09fc'
 posts = [
     {
         'author': 'Kyle VanZandt',
@@ -48,5 +47,3 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
-if __name__ == '__main__':
-    app.run(debug=True)
