@@ -1,8 +1,60 @@
 {% extends "layout.html" %}
 {% block content %}
-https://us.api.battle.net/wow/character/frostwolf/ßladerunner?locale=en_US&apikey=<your_key>&fields=statistics
-
-
-<iframe src="http://www.wowarmory.com/character-model-embed.xml?r=Frostwolf&cn=Gunblade&rhtml=true" scrolling="no" height="588" width="321" frameborder="0"></iframe>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+    .bs-example{
+    	margin: 20px;
+    }
+    .modal-content iframe{
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+ 
+</head>
+<body>
+<div class="bs-example">
+    <!-- Button HTML (to Trigger Modal) -->
+    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">Click for popover Video</a>
+    
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/SgwNJBJoJuE"" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end MOdal Video -->
+ 
+</div>     
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+    /* Get iframe src attribute value i.e. YouTube video url
+    and store it in a variable */
+    var url = $("#cartoonVideo").attr('src');
+    
+    /* Remove iframe src attribute on page load to
+    prevent autoplay in background */
+    $("#cartoonVideo").attr('src', '');
+    
+    /* Assign the initially stored url back to the iframe src
+    attribute when modal is displayed */
+    $("#myModal").on('https://www.youtube.com/embed/SgwNJBJoJuE"', function(){
+        $("#cartoonVideo").attr('src', url);
+    });
+    
+    /* Assign empty url value to the iframe src attribute when
+    modal hide, which stop the video playing */
+    $("#myModal").on('http://hide.bs.modal', function(){
+        $("#cartoonVideo").attr('src', '');
+    });
+});
+</script>
 <iframe src="http://youtube.com/embed/RH1zx32HY7Y?autoplay=1&border=1" width="560" height="315" frameborder="0" allowfullscreen=""></iframe>
 {% endblock content %}
