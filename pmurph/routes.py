@@ -30,6 +30,9 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
+@app.route("/testing")
+def testing():
+    return render_template('testing.html', title='Testing')
 
 @app.route("/videos")
 def videos():
